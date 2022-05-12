@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.Vector;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     ViewGroup m_my_list;
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater l = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         Vector<String> strings = new Vector<String>();
-        for(int i=0;i<100;++i)
+        for(int i=1;i<37;++i)
         {
             strings.add("Item " + i);
         }
@@ -36,14 +36,14 @@ public class MainActivity extends AppCompatActivity {
         {
             View item = l.inflate( R.layout.list_item, null);
             ((TextView)item.findViewById(R.id.itemtext)).setText(s);
-            item.findViewById(R.id.morebutton).setOnClickListener((View.OnClickListener) this);
+            item.findViewById(R.id.morebutton).setOnClickListener(this);
             m_my_list.addView(item);
         }
 
-        findViewById(R.id.detail).setOnClickListener((View.OnClickListener) this);
-        findViewById(R.id.button1).setOnClickListener((View.OnClickListener) this);
-        findViewById(R.id.button2).setOnClickListener((View.OnClickListener) this);
-        findViewById(R.id.button3).setOnClickListener((View.OnClickListener) this);
+        findViewById(R.id.detail).setOnClickListener(this);
+        findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
+        findViewById(R.id.button3).setOnClickListener(this);
     }
 
     public void onClick(View v)
